@@ -1,17 +1,36 @@
 aid: healthcare-com
 name: Healthcare.com
-description: 'Healthcare.com is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Healthcare.com (HealthCare, Inc.) is a privately held, non-government
+  health insurance marketplace and distribution platform founded in 2014. Consumers
+  use healthcare.com to find, compare and enroll in ACA/under-65 individual health
+  plans, Medicare Advantage and Medicare Supplement plans, and specialty coverage;
+  distributors, FMOs, MGAs and agents use its Autopilot machine-learning enrollment
+  acquisition platform, which matches high-intent shoppers to distributor partners
+  with predictive scoring and value-based lead pricing. Its Pivot Health subsidiary
+  develops and markets proprietary short-term medical, fixed indemnity and supplemental
+  gap products with A-rated carriers. Insurance is sold through Healthcare.com Insurance
+  Services, LLC. As of this profiling pass the company publishes no public developer
+  API, developer portal, OpenAPI definition or SDKs.'
+image: https://static.prd.healthcare.com/marketplace/deployments/nova/prod-751c995-30652016670-1/healthcare-logo.svg
 url: https://raw.githubusercontent.com/api-evangelist/healthcare-com/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pipeline
 specificationVersion: '0.20'
 created: '2026-08-01'
 modified: '2026-08-01'
 tags:
 - Company
+- Health Insurance
+- Insurance
+- Healthcare
+- Medicare
+- Insurtech
+- Marketplace
+- Consumer
+- Lead Generation
+- Insurance Distribution
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +38,44 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: LLMsTxt
+  url: llms/healthcare-com-llms.txt
+- type: Lifecycle
+  url: lifecycle/healthcare-com-lifecycle.yml
+- type: DomainSecurity
+  url: security/healthcare-com-domain-security.yml
 - type: Website
+  url: https://www.healthcare.com/
+- type: About
+  url: https://www.healthcare.com/about-company
+- type: Support
+  url: https://www.healthcare.com/contact
+- type: Blog
+  url: https://www.healthcare.com/health-insurance
+- type: TermsOfService
+  url: https://www.healthcare.com/terms
+- type: PrivacyPolicy
+  url: https://www.healthcare.com/privacy-policy
+- type: GitHubOrganization
+  url: https://github.com/healthcarecom
+- type: Partners
+  url: https://www.healthcare.com/partner-companies
+- type: Jobs
+  url: https://www.healthcare.com/jobs
+- type: Licensing
+  url: https://www.healthcare.com/licensing
+- type: LinkedIn
+  url: https://www.linkedin.com/company/healthcare-com
+- type: Twitter
+  url: https://twitter.com/healthcareinc
+- type: Facebook
+  url: https://www.facebook.com/HealthCarecom/
+- type: Instagram
+  url: https://www.instagram.com/healthcareinc/
+- type: SecondaryMarket
   url: https://forgeglobal.com/healthcare-com_stock/
+x-enrichment:
+  date: '2026-08-01'
+  status: minimal
+  artifacts_added: 4
+  pass: local-v1

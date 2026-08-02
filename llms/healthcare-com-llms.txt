@@ -1,0 +1,61 @@
+# Healthcare.com
+
+> Healthcare.com (HealthCare, Inc.) is a privately held, non-government health insurance
+> marketplace and distribution platform founded in 2014. Consumers use it to find, compare
+> and enroll in ACA/under-65 individual health plans, Medicare Advantage and Medicare
+> Supplement plans, and specialty coverage. Distributors, FMOs, MGAs and agents use its
+> Autopilot machine-learning enrollment acquisition platform, which matches high-intent
+> shoppers to distributor partners with predictive scoring and value-based lead pricing.
+> Its Pivot Health subsidiary develops proprietary short-term medical, fixed indemnity and
+> supplemental gap products with A-rated carriers. Insurance is sold through
+> Healthcare.com Insurance Services, LLC. Not affiliated with HealthCare.gov.
+
+## APIs
+
+Healthcare.com publishes **no public developer API** as of 2026-08-01: no developer portal,
+no API reference, no OpenAPI/AsyncAPI/GraphQL contract, no SDKs, no MCP server and no A2A
+agent card were found on any company host. `api.healthcare.com` is a live but private
+first-party API host (root returns HTTP 418 with an empty body; unknown paths return a
+plain-text 404) with no published documentation. See
+`well-known/healthcare-com-well-known.yml` for the full probe record.
+
+## Company
+
+- [Healthcare.com](https://www.healthcare.com/): Health insurance marketplace — compare and enroll in ACA, Medicare and specialty plans.
+- [About HealthCare.com](https://www.healthcare.com/about-company): Company mission, history and product lines (Autopilot, Pivot Health).
+- [Partner companies](https://www.healthcare.com/partner-companies): Carrier and distributor partners.
+- [Licensing](https://www.healthcare.com/licensing): National Producer License numbers by state for Healthcare.com Insurance Services, LLC.
+- [Careers](https://www.healthcare.com/jobs): Open roles at HealthCare, Inc.
+- [Contact](https://www.healthcare.com/contact): Support and contact channels.
+- [Pivot Health](https://www.pivothealth.com/): Subsidiary; proprietary short-term medical, fixed indemnity and supplemental products.
+
+## Products
+
+- **Autopilot** — machine-learning enrollment acquisition platform for health insurance distributors; predictive modeling, outcome-based pricing, branded customer handoffs, and Autopilot Voice.
+- **Pivot Health** — proprietary direct-to-consumer specialty insurance (short-term medical, fixed indemnity, gap coverage).
+- **Marketplace** — consumer plan comparison and enrollment across ACA/under-65, Medicare Advantage and Medicare Supplement.
+
+## Content
+
+- [Health insurance articles](https://www.healthcare.com/health-insurance): Editorial archive on plans, enrollment and coverage.
+- [Medicare](https://www.healthcare.com/medicare): Medicare plan guidance and comparison.
+
+## Legal
+
+- [Terms & Conditions](https://www.healthcare.com/terms)
+- [Privacy Policy](https://www.healthcare.com/privacy-policy)
+- [Do Not Call Policy](https://www.healthcare.com/do-not-call-policy)
+- [Data request form](https://www.healthcare.com/data-request/request-form/)
+
+## Artifacts
+
+- [API Evangelist profile](https://raw.githubusercontent.com/api-evangelist/healthcare-com/refs/heads/main/apis.yml): APIs.json 0.20 index for this provider.
+- `security/healthcare-com-domain-security.yml`: probed TLS/HSTS/DNSSEC/CAA/SPF/DMARC posture.
+- `well-known/healthcare-com-well-known.yml`: full `/.well-known/` and contract-discovery probe record.
+- `lifecycle/healthcare-com-lifecycle.yml`: versioning/deprecation/status-page findings.
+
+## Optional
+
+- [LinkedIn](https://www.linkedin.com/company/healthcare-com)
+- [GitHub organization](https://github.com/healthcarecom): exists, zero public repositories.
+- [X / Twitter](https://twitter.com/healthcareinc)

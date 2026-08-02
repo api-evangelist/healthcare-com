@@ -1,0 +1,98 @@
+generated: '2026-08-01'
+method: probed
+source: live HTTP probes of every Healthcare.com host found in apis.yml
+summary: >-
+  No RFC 8615 well-known document is published on any Healthcare.com or Pivot Health
+  host. The primary marketing host (www.healthcare.com) is a Next.js single-page app
+  whose catch-all route answers HTTP 200 with the same ~42KB HTML shell for every
+  unknown path — including every /.well-known/* path probed — so those 200s are soft
+  404s, NOT documents. They are recorded here explicitly so a later pass does not
+  mistake them for hits. The API host (api.healthcare.com) returns genuine plain-text
+  404s and serves no discovery surface.
+hosts:
+- host: www.healthcare.com
+  note: Next.js SPA; unknown paths return HTTP 200 with an HTML shell (soft 404)
+  documents:
+  - {path: /.well-known/security.txt, status: 307, result: redirect to get.healthcare.com/your-story, hit: false}
+  - {path: /.well-known/openid-configuration, status: 200, content_type: text/html, result: spa-soft-404, hit: false}
+  - {path: /.well-known/oauth-authorization-server, status: 200, content_type: text/html, result: spa-soft-404, hit: false}
+  - {path: /.well-known/oauth-protected-resource, status: 200, content_type: text/html, result: spa-soft-404, hit: false}
+  - {path: /.well-known/api-catalog, status: 200, content_type: text/html, result: spa-soft-404, hit: false}
+  - {path: /.well-known/ai-plugin.json, status: 200, content_type: text/html, result: spa-soft-404, hit: false}
+  - {path: /.well-known/agent-card.json, status: 200, content_type: text/html, result: spa-soft-404, hit: false}
+  - {path: /.well-known/agent.json, status: 200, content_type: text/html, result: spa-soft-404, hit: false}
+- host: api.healthcare.com
+  note: >-
+    Real API host (HTTP/2, HSTS preload, x-content-type-options nosniff). Root returns
+    418 with an empty body (WAF/bot response); unknown paths return a plain-text 404.
+    No public documentation, no spec, no discovery documents.
+  documents:
+  - {path: /.well-known/security.txt, status: 404, hit: false}
+  - {path: /.well-known/openid-configuration, status: 404, hit: false}
+  - {path: /.well-known/oauth-authorization-server, status: 404, hit: false}
+  - {path: /.well-known/oauth-protected-resource, status: 404, hit: false}
+  - {path: /.well-known/api-catalog, status: 404, hit: false}
+  - {path: /.well-known/ai-plugin.json, status: 404, hit: false}
+  - {path: /.well-known/agent-card.json, status: 404, hit: false}
+  - {path: /.well-known/agent.json, status: 404, hit: false}
+- host: get.healthcare.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404, hit: false}
+  - {path: /.well-known/agent-card.json, status: 404, hit: false}
+  - {path: /.well-known/agent.json, status: 404, hit: false}
+- host: welcome.healthcare.com
+  note: Unbounce-hosted distributor/partner landing page
+  documents:
+  - {path: /.well-known/security.txt, status: 404, hit: false}
+  - {path: /.well-known/agent-card.json, status: 404, hit: false}
+  - {path: /.well-known/agent.json, status: 404, hit: false}
+- host: www.pivothealth.com
+  note: Pivot Health, a HealthCare, Inc. subsidiary
+  documents:
+  - {path: /.well-known/security.txt, status: 404, hit: false}
+  - {path: /.well-known/openid-configuration, status: 302, result: redirect, hit: false}
+  - {path: /.well-known/agent-card.json, status: 404, hit: false}
+  - {path: /.well-known/agent.json, status: 404, hit: false}
+contract_discovery:
+  performed: '2026-08-01'
+  result: no-machine-readable-contract
+  openapi_probes:
+  - {url: 'https://api.healthcare.com/openapi.json', status: 404}
+  - {url: 'https://api.healthcare.com/swagger.json', status: 404}
+  - {url: 'https://api.healthcare.com/v1/openapi.json', status: 404}
+  - {url: 'https://api.healthcare.com/api-docs', status: 404}
+  - {url: 'https://api.healthcare.com/docs', status: 404}
+  - {url: 'https://www.healthcare.com/openapi.json', status: 200, result: spa-soft-404}
+  - {url: 'https://www.healthcare.com/swagger.json', status: 200, result: spa-soft-404}
+  graphql_probes:
+  - {url: 'https://api.healthcare.com/graphql', status: 404}
+  mcp_probes: []
+  agent_card_probes:
+  - {url: 'https://www.healthcare.com/.well-known/agent-card.json', status: 200, result: 'rejected: HTML body, SPA catch-all'}
+  - {url: 'https://api.healthcare.com/.well-known/agent-card.json', status: 404}
+  - {url: 'https://api.healthcare.com/.well-known/agent.json', status: 404}
+  - {url: 'https://get.healthcare.com/.well-known/agent-card.json', status: 404}
+  - {url: 'https://welcome.healthcare.com/.well-known/agent-card.json', status: 404}
+  - {url: 'https://www.pivothealth.com/.well-known/agent-card.json', status: 404}
+  llms_txt_probes:
+  - {url: 'https://www.healthcare.com/llms.txt', status: 307, result: redirect to get.healthcare.com/your-story}
+  - {url: 'https://welcome.healthcare.com/llms.txt', status: 404}
+  - {url: 'https://www.pivothealth.com/llms.txt', status: 404}
+  developer_host_probes:
+  - {host: developer.healthcare.com, result: NXDOMAIN}
+  - {host: developers.healthcare.com, result: NXDOMAIN}
+  - {host: docs.healthcare.com, result: NXDOMAIN}
+  - {host: developer.pivothealth.com, result: NXDOMAIN}
+  - {host: app.healthcare.com, result: NXDOMAIN}
+  - {host: portal.healthcare.com, result: NXDOMAIN}
+  - {host: agents.healthcare.com, result: NXDOMAIN}
+  observed_endpoints:
+  - url: https://geoip.healthcare.com/
+    status: 200
+    content_type: application/json
+    note: >-
+      Anonymous, undocumented internal IP-geolocation helper used by the marketplace
+      front end (returns ip/country/region/city/postal/loc). Recorded as an observed
+      endpoint only — it is not a documented, supported or developer-facing API, so it
+      is deliberately NOT registered as an apis[] entry and no OpenAPI has been authored
+      for it.

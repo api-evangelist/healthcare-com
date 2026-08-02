@@ -1,0 +1,42 @@
+generated: '2026-08-01'
+method: probed
+source: live probes of Healthcare.com hosts + site search for versioning/deprecation/SLA policy
+summary: >-
+  Healthcare.com publishes no public API, and therefore no API versioning scheme,
+  deprecation policy, Sunset/Deprecation header support, SLA or public changelog. A
+  Rootly-hosted status page exists at status.healthcare.com but it is SSO-gated, so it
+  is an internal/partner surface rather than a public operational-transparency signal.
+versioning:
+  scheme: null
+  current: null
+  docs: null
+  note: no public API surface to version
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: no published deprecation or Sunset (RFC 8594) policy found
+sla:
+  url: null
+  uptime_target: null
+status_page:
+  url: https://status.healthcare.com/
+  platform: Rootly
+  public: false
+  access: sso-gated
+  http_status: 403
+  note: >-
+    Cloudflare bot-challenges anonymous clients; the rendered page is a Rootly status
+    page presenting "Sign in with SSO" with no publicly visible components or incident
+    history. Evidence: HTTP/2 103 early-hints Link header preloading
+    assets.rootly.com stylesheets, and the rendered "Powered by Rootly" sign-in view.
+    Because no component status is visible without authentication, this artifact does
+    NOT carry a `StatusPage` pointer in apis.yml — recording presence without public
+    visibility would credit an operational-transparency posture the provider does not
+    offer to consumers.
+deprecated_operations: []
+x-evidence:
+  fetched: '2026-08-01'
+  probes:
+  - {url: 'https://status.healthcare.com/', http_status: 403, note: cloudflare challenge; rootly assets in Link header}
+  - {url: 'https://www.healthcare.com/security', http_status: 200, note: spa-soft-404}
+  - {url: 'https://www.healthcare.com/sitemap.xml', http_status: 200, note: spa-soft-404}
