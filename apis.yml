@@ -11,6 +11,17 @@ description: 'Healthcare.com (HealthCare, Inc.) is a privately held, non-governm
   gap products with A-rated carriers. Insurance is sold through Healthcare.com Insurance
   Services, LLC. As of this profiling pass the company publishes no public developer
   API, developer portal, OpenAPI definition or SDKs.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://static.prd.healthcare.com/marketplace/deployments/nova/prod-751c995-30652016670-1/healthcare-logo.svg
 url: https://raw.githubusercontent.com/api-evangelist/healthcare-com/refs/heads/main/apis.yml
 x-type: company
