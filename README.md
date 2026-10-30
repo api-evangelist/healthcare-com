@@ -64,46 +64,84 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Healthcare.com (HealthCare, Inc.) is a privately held, non-government health insurance
-marketplace and distribution platform founded in 2014. Consumers use healthcare.com to find,
-compare and enroll in ACA/under-65 individual health plans, Medicare Advantage and Medicare
-Supplement plans, and specialty coverage. Distributors, FMOs, MGAs and agents use its
-**Autopilot** machine-learning enrollment acquisition platform, which matches high-intent
-shoppers to distributor partners with predictive scoring and value-based lead pricing. Its
-**Pivot Health** subsidiary develops and markets proprietary short-term medical, fixed
-indemnity and supplemental gap products with A-rated carriers. Insurance is sold through
-Healthcare.com Insurance Services, LLC. Not affiliated with HealthCare.gov.
+Healthcare.com (HealthCare, Inc.) is a privately held, non-government health insurance marketplace and distribution platform founded in 2014. Consumers use healthcare.com to find, compare and enroll in ACA/under-65 individual health plans, Medicare Advantage and Medicare Supplement plans, and specialty coverage; distributors, FMOs, MGAs and agents use its Autopilot machine-learning enrollment acquisition platform, which matches high-intent shoppers to distributor partners with predictive scoring and value-based lead pricing. Its Pivot Health subsidiary develops and markets proprietary short-term medical, fixed indemnity and supplemental gap products with A-rated carriers. Insurance is sold through Healthcare.com Insurance Services, LLC. As of this profiling pass the company publishes no public developer API, developer portal, OpenAPI definition or SDKs.
 
-- https://www.healthcare.com/
-- https://www.healthcare.com/about-company
-- https://www.pivothealth.com/
+**Areas:** Company · Health Insurance · Insurance · Healthcare · Medicare · Insurtech · Marketplace · Consumer · Lead Generation · Insurance Distribution
 
-## API surface
+## Healthcare.com on APIs.io
 
-**No public developer API.** As of the 2026-08-01 enrichment pass, Healthcare.com publishes
-no developer portal, API reference, OpenAPI/AsyncAPI/GraphQL contract, SDK, CLI, Postman
-collection, MCP server or A2A agent card. `api.healthcare.com` is a live first-party API host
-(HTTP/2, HSTS with `preload`) but it is private: the root returns HTTP 418 with an empty body
-and unknown paths return a plain-text 404. `autopilot.healthcare.com` is an authenticated
-Retool application. `developer.`, `developers.` and `docs.healthcare.com` do not resolve.
+Everything profiled for Healthcare.com is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/healthcare-com/](https://apis.io/providers/healthcare-com/)** — or go straight to one of the APIs or properties below.
 
-The full probe record — every `/.well-known/*` path, OpenAPI/GraphQL/MCP/agent-card candidate,
-and developer-host lookup — is in `well-known/healthcare-com-well-known.yml`. Note that
-`www.healthcare.com` is a Next.js SPA whose catch-all answers **HTTP 200 with an HTML shell
-for every unknown path**, so 200s on `/.well-known/*`, `/openapi.json` and
-`/vulnerability-disclosure/` are soft 404s, not hits.
+### Published properties
 
-## Artifacts
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-| Path | Type | Method |
-|---|---|---|
-| `apis.yml` | APIs.json 0.20 index | — |
-| `well-known/healthcare-com-well-known.yml` | well-known + contract-discovery probe record (all misses) | probed |
-| `security/healthcare-com-domain-security.yml` | TLS/HSTS/DNSSEC/CAA/SPF/DMARC posture | probed |
-| `lifecycle/healthcare-com-lifecycle.yml` | versioning / deprecation / status page | probed |
-| `llms/healthcare-com-llms.txt` | llms.txt for agents | generated |
+#### Security (1)
 
-Not applicable (nothing published to harvest, and nothing fabricated): `openapi/`, `asyncapi/`,
-`graphql/`, `mcp/`, `a2a/`, `skills/`, `packages/`, `cli/`, `components/`, `sandbox/`,
-`overlays/`, `grpc/`, `scopes/`, `authentication/`, `conventions/`, `errors/`, `data-model/`,
-`changelog/`, `conformance/`.
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Healthcare Com Domain Security](https://apis.io/security/healthcare-com/healthcare-com-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.healthcare.com/)
+- [Support](https://www.healthcare.com/contact)
+- [Blog](https://www.healthcare.com/health-insurance)
+- [Terms of service](https://www.healthcare.com/terms)
+- [Privacy policy](https://www.healthcare.com/privacy-policy)
+- [GitHub](https://github.com/healthcarecom)
+
+## API Evangelist rating
+
+**Kin Score 10.9** — minimal · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 21.1 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 12.3** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/healthcare-com/](https://apis.io/providers/healthcare-com/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Healthcare.com: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/healthcare-com/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
